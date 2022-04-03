@@ -1,0 +1,60 @@
+openapi: 3.0.0
+info:
+  title: Authentication
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/v1
+paths:
+  /auth:
+    post:
+      description: Endpoint for authenticating of users and returning a JWT token for further requests to the API server.
+      tags:
+        - Authentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: "joaodasilva@gmail.com" 
+                password:
+                  type: string
+                  format: password
+                  example: "teste12345@TES"
+      responses:
+        '200':
+          description: Successful authentication
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  token:
+                    type: string
+                    example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+          headers: {}
+        '401':
+          description: Invalid credentials or email not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  errorCode:
+                    type: string
+                    example: "INVLCRED"
+                  errorMessage: 
+                    type: string
+                    example: "Invalid email or password"
+
+
+          headers: {}
