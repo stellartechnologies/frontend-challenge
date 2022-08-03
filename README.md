@@ -97,7 +97,7 @@ Resposta:<br />
 }`
 
 **Usuário e senha incorreta:**<br />
-`{"email": "joaodasilva@gmail.com", "password": "teste12345@TES"}`<br />
+`{"email": "joaodasilva@gmail.com", "password": "teste12345@"}`<br />
 Resposta:<br />
 `{
     "success": false,
