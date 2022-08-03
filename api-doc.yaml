@@ -3,7 +3,7 @@ info:
   title: Authentication
   version: 1.0.0
 servers:
-  - url: http://localhost:3000/v1
+  - url: https://stellar-mock.herokuapp.com/v1
 paths:
   /auth:
     post:
